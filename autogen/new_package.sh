@@ -3,7 +3,7 @@
 set -e
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source "$SCRIPT_DIR/string_manipulations"
+source "string_manipulations.sh"
 snake_case_name=$1
 upper_case_name=$(snake_to_uppercase "$snake_case_name")
 camel_case_name=$(snake_to_camel "$snake_case_name")
