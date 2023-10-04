@@ -1,10 +1,8 @@
-# Project Title
-
-Bash Library
+# Bash Library
 
 ## Description
 
-Will have a number of bash scripts to help with software development
+Contains a variety of bash scripts to help with software development
 
 ## Getting Started
 run 
@@ -23,5 +21,4 @@ to add all scripts to /usr/scripts directory
 
 Contributors names and contact info
 
-ex. Zix  
-ex. [@Zix](https://github.com/Repo-Factory/)
+[@Slix Elixel](https://github.com/Repo-Factory/) Github
