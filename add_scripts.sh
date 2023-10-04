@@ -34,7 +34,7 @@ add_all_directores_to_bash_rc()
 while [[ $# -gt 0 ]]; do
     case "$1" in
         -a|--add)
-           add_all_directores_to_bash_rc();;
+           add_all_directores_to_bash_rc;;
     esac
     shift
 done
