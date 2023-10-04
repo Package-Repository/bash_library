@@ -7,7 +7,7 @@ Contains a variety of bash scripts to help with software development
 ## Getting Started
 run 
 
-    add_scripts.sh
+    add_scripts.sh -a
 
 to add all scripts to /usr/scripts directory
 
