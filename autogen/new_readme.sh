@@ -34,10 +34,7 @@ An in-depth paragraph about your project and overview of use.
 
 ## Authors
 
-Contributors names and contact info
-
-ex. Zix  
-ex. [@Zix](https://github.com/Repo-Factory/)
+[@Slix Elixel](https://github.com/Repo-Factory/) Github
 
 EOL
 )
