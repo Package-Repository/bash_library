@@ -27,4 +27,4 @@ EOL
 )
 
 echo "$SRC_CONTENT" > "src/$1.cpp"
-echo "$HEADER_CONTENT" > "include/$1.hpp" 
+echo "$HEADER_CONTENT" > "include/$1.h" 

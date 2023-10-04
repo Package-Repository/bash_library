@@ -13,8 +13,8 @@ cd $1
 mkdir include
 touch include/$1.h
 mkdir src
-touch src/$1.c
-touch src/main.c
+touch src/$1.cpp
+touch src/main.cpp
 touch CMakeLists.txt
 
 HEADER_CONTENT=$(cat << EOL
@@ -59,7 +59,7 @@ get_filename_component(SRC_DIR "\${CMAKE_CURRENT_SOURCE_DIR}" DIRECTORY)
 
 # find_library(LIBRARY library)
 
-file(GLOB SOURCES src/*.c)
+file(GLOB SOURCES src/*.cpp)
 
 include_directories(include)
 
@@ -72,9 +72,9 @@ install(TARGETS \${PROJECT_NAME} DESTINATION lib/\${PROJECT_NAME})
 EOL
 )
 
-echo "$SOURCE_CONTENT" >  "src/$snake_case_name.c"
+echo "$SOURCE_CONTENT" >  "src/$snake_case_name.cpp"
 echo "$HEADER_CONTENT" >  "include/$snake_case_name.h"
-echo "$MAIN_CONTENT" >    "src/main.c"
+echo "$MAIN_CONTENT" >    "src/main.cpp"
 echo "$CMAKE_CONTENT" >   "CMakeLists.txt"
 
 mkdir build && cd build && cmake .. && make
