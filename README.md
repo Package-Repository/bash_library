@@ -19,6 +19,4 @@ to add all scripts to /usr/scripts directory
 
 ## Authors
 
-Contributors names and contact info
-
 [@Slix Elixel](https://github.com/Repo-Factory/) Github
