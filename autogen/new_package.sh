@@ -10,12 +10,7 @@ camel_case_name=$(snake_to_camel "$snake_case_name")
 
 mkdir $1
 cd $1
-mkdir include
-touch include/$1.h
-mkdir src
-touch src/$1.cpp
-touch src/main.cpp
-touch CMakeLists.txt
+
 
 HEADER_CONTENT=$(cat << EOL
 #ifndef ${upper_case_name}_H
@@ -60,21 +55,49 @@ get_filename_component(SRC_DIR "\${CMAKE_CURRENT_SOURCE_DIR}" DIRECTORY)
 # find_library(LIBRARY library)
 
 file(GLOB SOURCES src/*.cpp)
-
 include_directories(include)
 
-add_executable(\${PROJECT_NAME} \${SOURCES})
+add_library(
+    \${PROJECT_NAME}
+    SHARED 
+    \${SOURCES}
+)
 
-install(TARGETS \${PROJECT_NAME} DESTINATION lib/\${PROJECT_NAME})
+add_executable(
+    \${PROJECT_NAME}_exec
+    main/main.cpp
+)
 
-# target_link_libraries($snake_case_name PRIVATE \${LIBRARY})
+target_link_libraries(
+    \${PROJECT_NAME} PRIVATE 
+    # \${LIBRARY}
+)
+
+target_link_libraries(
+    \${PROJECT_NAME}_exec PRIVATE 
+    \${PROJECT_NAME}
+)
+
+install(
+    TARGETS \${PROJECT_NAME} 
+    DESTINATION lib/\${PROJECT_NAME}
+)
+
+install(
+    TARGETS \${PROJECT_NAME}_exec 
+    DESTINATION bin/\${PROJECT_NAME}
+)
 
 EOL
 )
 
+mkdir include
+mkdir src
+mkdir main
+
 echo "$SOURCE_CONTENT" >  "src/$snake_case_name.cpp"
 echo "$HEADER_CONTENT" >  "include/$snake_case_name.h"
-echo "$MAIN_CONTENT" >    "src/main.cpp"
+echo "$MAIN_CONTENT" >    "main/main.cpp"
 echo "$CMAKE_CONTENT" >   "CMakeLists.txt"
 
 mkdir build && cd build && cmake .. && make

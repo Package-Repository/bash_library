@@ -3,7 +3,7 @@
 set -e  # Exit on any error
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-BUILD_DIR="$SCRIPT_DIR/build"
+BUILD_DIR="build"
 
 # Create build directory if it doesn't exist
 mkdir -p "$BUILD_DIR"
