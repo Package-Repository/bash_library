@@ -9,7 +9,9 @@ process_directory() {
         # Run your desired command here
         echo "Running command in $dir"
         # Replace the following line with your actual command
+        cd $dir
         build_project.sh -i
+        cd ..
     else
         echo "No CMakeLists.txt in $dir"
     fi
