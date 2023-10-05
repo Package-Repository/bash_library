@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# @dependency build_project.sh
+
 # Function to process each directory
 process_directory() {
     local dir="$1"
@@ -9,7 +11,7 @@ process_directory() {
         # Run your desired command here
         echo "Running command in $dir"
         # Replace the following line with your actual command
-        cd $dir
+        cd "$dir" || exit
         build_project.sh -i
         cd ..
     else
@@ -17,12 +19,5 @@ process_directory() {
     fi
 }
 
-# Main script
-
-# Loop through each directory
-for dir in */; do
-    # Exclude non-directories (e.g., symbolic links)
-    if [ -d "$dir" ]; then
-        process_directory "$dir"
-    fi
-done
+# Main script using find command to traverse all subdirectories
+find . -type d -exec bash -c 'process_directory "{}"' \;
