@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# @dependency build_project.sh
-
-# Function to process each directory
 process_directory() {
     local dir="$1"
 
@@ -11,13 +8,27 @@ process_directory() {
         # Run your desired command here
         echo "Running command in $dir"
         # Replace the following line with your actual command
-        cd "$dir" || exit
-        build_project.sh -i
-        cd ..
+        (cd "$dir" && ./build_project.sh -i)
     else
         echo "No CMakeLists.txt in $dir"
     fi
 }
 
-# Main script using find command to traverse all subdirectories
-find . -type d -exec bash -c 'process_directory' \;
+# Function to process all directories and subdirectories
+process_all_directories() {
+    local start_dir="$1"
+
+    # Process the current directory
+    process_directory "$start_dir"
+
+    # Recursively process subdirectories
+    for sub_dir in "$start_dir"/*; do
+        if [ -d "$sub_dir" ]; then
+            process_all_directories "$sub_dir"
+        fi
+    done
+}
+
+# Start processing from the current directory
+current_dir=$(pwd)
+process_all_directories "$current_dir"
