@@ -83,6 +83,9 @@ install(
     DESTINATION lib/\${PROJECT_NAME}
 )
 
+file(GLOB HEADERS include/*.h)
+install(FILES \${HEADERS} DESTINATION include/\${PROJECT_NAME})
+
 install(
     TARGETS \${PROJECT_NAME}_exec 
     DESTINATION bin/\${PROJECT_NAME}
