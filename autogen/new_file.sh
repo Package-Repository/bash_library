@@ -5,8 +5,17 @@ upper_case_name=$(snake_to_uppercase "$snake_case_name")
 camel_case_name=$(snake_to_camel "$snake_case_name")
 
 SRC_CONTENT=$(cat << EOL
+/* 
+ * @brief $1 does something cool
+ *
+ * more
+ * more
+ * more
+ */
+
 #include "$snake_case_name.h"
 
+// Does something
 int ${camel_case_name}(int arg)
 {
     return arg + NUMERIC_ZERO;
