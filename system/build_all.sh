@@ -20,4 +20,4 @@ process_directory() {
 }
 
 # Main script using find command to traverse all subdirectories
-find . -type d -exec bash -c 'process_directory "{}"' \;
+find . -type d -exec bash -c 'process_directory' \;
