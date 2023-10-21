@@ -17,7 +17,7 @@ rm -rf "$temporary_copy_dir"
 mkdir -p "$temporary_copy_dir"
 
 # Clone the Git repository
-git clone https://github.com/Repo-Factory/Robot-Packages git_auto_gen_package_dir
+git clone --recursive-submodules https://github.com/Repo-Factory/Robot-Packages git_auto_gen_package_dir
 
 # Move into the cloned repository directory
 cd git_auto_gen_package_dir || exit 1
