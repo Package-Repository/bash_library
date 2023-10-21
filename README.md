@@ -11,6 +11,8 @@ run
 
 to add all scripts to /usr/scripts directory
 
+make sure to go to visudo and update our secure path with /usr/scripts
+
 ### Dependencies
 
 * Many scripts will source to keep functionality modular

@@ -15,7 +15,11 @@ fi
 # Copy all subdirectories to the target directory
 for dir in "$SCRIPT_DIR"/*/; do
     if [ -d "$dir" ]; then
-        cp -r "$dir" "$TARGET_DIR"
+        for script in "$dir"/*; do
+            if [ -f "$script" ]; then
+                cp "$script" "$TARGET_DIR"
+            fi
+        done
     fi
 done
 
