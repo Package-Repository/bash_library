@@ -4,7 +4,7 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Set the target directory where the scripts will be copied
-TARGET_DIR="/usr/scripts"
+TARGET_DIR="/usr/local/bin/scripts"
 
 # Check if the target directory exists, if not, create it
 if [ ! -d "$TARGET_DIR" ]; then
