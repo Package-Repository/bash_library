@@ -6,7 +6,7 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-git clone --recurse-submodules https://github.com/Repo-Factory-Mechatronics/$1
+git clone --recurse-submodules https://github.com/Package-Repository/$1
 
 while [[ $# -gt 0 ]]; do
     case "$2" in
